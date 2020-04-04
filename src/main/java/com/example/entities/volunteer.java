@@ -6,11 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "kadya")
-public class kadya {
+@Table(name = "volunteer")
+public class volunteer {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -25,25 +24,16 @@ public class kadya {
 	@Lob
 	private String corps;
 	
-	@Lob
-	private String raison;
-	
-
-	@Lob
-	private String numero;
-
-	public kadya() {}
+	public volunteer() {}
 	
 	
-
-	public kadya(long id, String name, String adresse, String corps, String raison, String numero) {
+	
+	public volunteer(long id, String name, String adresse, String corps, String numero) {
 		
 		this.id = id;
-		
 		this.name = name;
 		this.adresse = adresse;
 		this.corps = corps;
-		this.raison = raison;
 		this.numero = numero;
 	}
 
@@ -56,9 +46,6 @@ public class kadya {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-
-	
 
 
 	public String getName() {
@@ -91,16 +78,6 @@ public class kadya {
 	}
 
 
-	public String getRaison() {
-		return raison;
-	}
-
-
-	public void setRaison(String raison) {
-		this.raison = raison;
-	}
-
-
 	public String getNumero() {
 		return numero;
 	}
@@ -109,6 +86,9 @@ public class kadya {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	
-	
+
+
+	@Lob
+	private String numero;
+
 }
