@@ -24,17 +24,34 @@ public class volunteer {
 	@Lob
 	private String corps;
 	
+	@Lob 
+	private String accepted;
+	
+	
+	public String getAccepted() {
+		return accepted;
+	}
+
+
+
+	public void setAccepted(String accepted) {
+		this.accepted = accepted;
+	}
+
+
+
 	public volunteer() {}
 	
 	
 	
-	public volunteer(long id, String name, String adresse, String corps, String numero) {
+	public volunteer(long id, String name, String adresse, String corps, String numero,String accepted) {
 		
 		this.id = id;
 		this.name = name;
 		this.adresse = adresse;
 		this.corps = corps;
 		this.numero = numero;
+		this.accepted=accepted;
 	}
 
 
@@ -90,5 +107,11 @@ public class volunteer {
 
 	@Lob
 	private String numero;
+
+
+	public void seVolunteer(volunteer volunteer) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
