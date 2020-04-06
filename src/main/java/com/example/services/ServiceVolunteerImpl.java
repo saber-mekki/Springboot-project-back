@@ -10,11 +10,15 @@ import org.springframework.stereotype.Service;
 
 import com.example.entities.volunteer;
 import com.example.repositories.VolunteerReprository;
+import com.example.utils.MailService;
 
 @Service(value = "VolenteerService")
 public class ServiceVolunteerImpl implements ServiceVolunteer{
 	@Autowired
 	 private VolunteerReprository  volunteerReprository;
+
+	@Autowired
+	private MailService mailService;
 
 	
 	
@@ -42,6 +46,7 @@ public class ServiceVolunteerImpl implements ServiceVolunteer{
 
 	@Override
 	public void register(volunteer Volunteer) {
+		mailService.sendVolunteerEmail(Volunteer);
 		volunteerReprository.save(Volunteer);
 	}
 

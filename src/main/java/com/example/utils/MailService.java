@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.entities.ConfirmationToken;
 import com.example.entities.User;
+import com.example.entities.volunteer;
 
 @Transactional
 @Service("mailService")
@@ -42,6 +43,20 @@ public class MailService {
         mailMessage.setSubject("Complete Registration!");
         mailMessage.setText("To confirm your account, please click here : "
         +"http://localhost:4200/auth/confirm-account?token="+confirmationToken.getConfirmationToken());
+        javaMailSender.send(mailMessage);		
+	}
+
+
+	public void sendVolunteerEmail(volunteer volt) throws MailException {
+		
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo("saber.mekki6@gmail.com");
+        mailMessage.setSubject("Demande de bénévole");
+		mailMessage.setText("Je suis : \n Nom : "+ volt.getName()+
+		"\n Adresse : "+volt.getAdresse()+
+		"\n Numéro : "+volt.getNumero()+
+		"\n Corps : "+volt.getCorps()+
+		"Je veux  etre bénévole dans vos activités");
         javaMailSender.send(mailMessage);		
 	}
 
