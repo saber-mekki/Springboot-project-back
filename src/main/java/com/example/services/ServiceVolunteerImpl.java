@@ -22,32 +22,37 @@ public class ServiceVolunteerImpl implements ServiceVolunteer{
 
 	
 	
-//mazilt mouch mthabit fiha
+/* ******* */
 	@Override
-	public void update(Optional<volunteer> v,volunteer volunteer) {
-		volunteer.seVolunteer(v.get());
-		volunteerReprository.saveAndFlush(volunteer);
-		
-		
+	public void acceptVolunteer(long id){
+		volunteer v=volunteerReprository.findById(id).get();
+		if(v !=null){
+			v.setAccepted("accepted");
+			volunteerReprository.save(v);
+		}
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(long id) {
 		volunteerReprository.deleteById(id);
 	}
 	
 	@Override
 	public List<volunteer> getall(){
-		List<volunteer> list=new ArrayList<>();
-		volunteerReprository.findAll().iterator().forEachRemaining(list::add);
-		return list;
+		return volunteerReprository.findAccepted();
 	};
 	
 
 	@Override
 	public void register(volunteer Volunteer) {
 		mailService.sendVolunteerEmail(Volunteer);
+		Volunteer.setAccepted("waitting");
 		volunteerReprository.save(Volunteer);
+	}
+
+	@Override
+	public List<volunteer> getNonAccepted(){
+		return volunteerReprository.findNotAccepted();
 	}
 
 }

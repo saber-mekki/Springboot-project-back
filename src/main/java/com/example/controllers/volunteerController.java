@@ -34,7 +34,18 @@ public class volunteerController {
 	
 	
 	@PostMapping("/delete/{id}")
-	public void save(@PathVariable (value = "id") int id){
+	public void delete(@PathVariable (value = "id") long id){
 	serviceVolunteer.delete(id);
 			}
+
+	@GetMapping("/nonAcceptedYet")	  
+	public List<volunteer> getNonAcceptedYet(){
+		return serviceVolunteer.getNonAccepted();
+	}
+
+	@GetMapping("/accept/{id}")	  
+	public void acceptVolunteer(@PathVariable (value = "id") long id){
+		serviceVolunteer.acceptVolunteer(id);
+	}
+
 }
