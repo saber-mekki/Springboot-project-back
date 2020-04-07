@@ -65,9 +65,8 @@ public class MailService {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo("saber.mekki6@gmail.com");
         mailMessage.setSubject(message[2]);
-		mailMessage.setText("Je suis : \n Nom : "+ message[0] +
-		"\n Email : "+message[1]+
-		"\n Mon message est : "+message[3]);
+		mailMessage.setText(message[3]+
+		"\n envoyé de la part de :"+ message[0] + "  -- Email : "+message[1]);
         javaMailSender.send(mailMessage);		
 	}
 

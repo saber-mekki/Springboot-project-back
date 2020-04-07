@@ -1,5 +1,7 @@
 package com.example.services;
 
+import java.util.List;
+
 import com.example.entities.Statistique;
 import com.example.repositories.StatistiqueRepository;
 
@@ -14,7 +16,13 @@ public class ServiceStatistiqueImpl implements ServiceStatistique{
 
     @Override
     public void ajouter(Statistique stat){
+        repoStat.deleteAll();
         repoStat.save(stat);
+    }
+
+    @Override
+    public List<Statistique> get(){
+        return repoStat.findAll();
     }
 
 }
