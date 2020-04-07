@@ -60,6 +60,17 @@ public class MailService {
         javaMailSender.send(mailMessage);		
 	}
 
+	public void sendContactEmail(String[] message) throws MailException {
+		
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo("saber.mekki6@gmail.com");
+        mailMessage.setSubject(message[2]);
+		mailMessage.setText("Je suis : \n Nom : "+ message[0] +
+		"\n Email : "+message[1]+
+		"\n Mon message est : "+message[3]);
+        javaMailSender.send(mailMessage);		
+	}
+
 
 
 }

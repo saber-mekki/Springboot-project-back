@@ -8,4 +8,5 @@ public interface  ServiceKadya {
 	
 public List<kadya> getall();
 public void register(kadya u);
+public void delete(long id);
 }

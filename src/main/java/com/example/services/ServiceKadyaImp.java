@@ -19,10 +19,17 @@ public class ServiceKadyaImp implements ServiceKadya{
 	public void register(kadya kadya) {
 		adyaReprository.save(kadya);
 	}
+
+	@Override
 	public List<kadya> getall(){
 		List<kadya> list=new ArrayList<>();
 		adyaReprository.findAll().iterator().forEachRemaining(list::add);
 		return list;
 	};
+
+	@Override
+	public void delete(long id){
+		adyaReprository.deleteById(id);
+	}
 
 }
