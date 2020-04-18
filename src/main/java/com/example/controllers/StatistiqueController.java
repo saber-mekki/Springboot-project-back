@@ -3,7 +3,10 @@ package com.example.controllers;
 import java.util.List;
 
 import com.example.entities.Statistique;
+
 import com.example.services.ServiceStatistique;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,10 +30,12 @@ public class StatistiqueController {
         serviceStatistique.ajouter(stat);
     }
 
+
     @GetMapping("/getValues")
     public List<Statistique> getStatistiques(){
       return serviceStatistique.get(); 
     }
+
 
 
 }

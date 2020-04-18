@@ -3,7 +3,11 @@ package com.example.services;
 import java.util.List;
 
 import com.example.entities.Statistique;
+import com.example.entities.kadya;
 import com.example.repositories.StatistiqueRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +24,11 @@ public class ServiceStatistiqueImpl implements ServiceStatistique{
         repoStat.save(stat);
     }
 
+
     @Override
     public List<Statistique> get(){
         return repoStat.findAll();
     }
+
 
 }
